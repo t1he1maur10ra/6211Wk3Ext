@@ -35,18 +35,18 @@ namespace Api
             foreach (RootObject x in femaleData)
             {
                 Console.WriteLine($"\nName: {x.name} {x.surname}\nGender: {x.gender}");
-                names[counter] = $"{x.surname}, {x.name}";
+                names[counter] = $"{x.surname}, {x.name}";//Create my own composite key for each person and add to an array
                 counter++;
             }
 
-            Array.Sort(names);
-            Console.WriteLine("\n... Sorted Data ...");
+            Array.Sort(names);//Sort my array in alphabetical order
+            Console.WriteLine("\n... Sorted array ...");
             foreach(string x in names)
                 Console.WriteLine($"Name: {x}");
 
             Console.ReadLine();
             Console.Clear();
-            Console.WriteLine("... Testing ...");
+            Console.WriteLine("... Sorting the data ...");
 
             RootObject[] females = new RootObject[femaleData.Count];
             femaleData.CopyTo(females);
@@ -59,14 +59,16 @@ namespace Api
                     if ($"{females[j].surname}, {females[j].name}" == names[i])
                     {
                         sortedFemales[i] = females[j];
-                        Console.WriteLine("Person added");
+                        Console.WriteLine($"{i}: Person added. {j} internal loops required");
                     }
+                    
                 }
+                Console.WriteLine($"Sorted: {sortedFemales[i].name}\nNames: {names[i]}");
             }
             
             foreach(RootObject x in sortedFemales)
             {
-                Console.WriteLine($"Name: {x.name} {x.surname}");
+                Console.WriteLine($"Name: {x.surname}, {x.name}");
             }
 
 
